@@ -1,0 +1,45 @@
+name: Busted
+
+on: [ push, pull_request ]
+
+jobs:
+
+  busted:
+    strategy:
+      fail-fast: false
+      matrix:
+        luaVersion: [ "5.4" ]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup 'lua'
+        uses: leafo/gh-actions-lua@v9
+        with:
+          luaVersion: ${{ matrix.luaVersion }}
+
+      - name: Setup 'luarocks'
+        uses: leafo/gh-actions-luarocks@v4
+
+      - name: Setup dependencies
+        run: |
+          luarocks install --deps-only sqids-lua-*.rockspec
+          luarocks install busted
+          luarocks install luacov
+          luarocks install luacov-coveralls
+
+      - name: Build 'sqids'
+        run: |
+          luarocks make
+
+      - name: Run 'busted'
+        # disable project-local path prefixes to force use of system installation
+        run: busted --coverage --output=gtest -Xoutput --color
+
+      - name: Report test coverage
+        if: ${{ success() }}
+        continue-on-error: true
+        run: luacov-coveralls -i sqids.lua
+        env:
+          COVERALLS_REPO_TOKEN: ${{ github.token }}
