@@ -27,7 +27,7 @@ Not good for:
 
 ##  🚀 Getting started
 
-Sqids is available on [LuaRocks](https://luarocks.org/modules/luarocks/sqids):
+Sqids is available on [LuaRocks](https://luarocks.org/modules/nascarsayan/sqids-lua):
 
 ```bash
 luarocks install sqids-lua
