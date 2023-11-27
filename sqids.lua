@@ -21,7 +21,6 @@ local function get_script_path()
 end
 
 local current_directory = get_script_path()
-print("Current Directory:", current_directory)
 local blocklistFilePath = current_directory .. "blocklist.json"
 
 -- Load blocklist from blocklist.json file
