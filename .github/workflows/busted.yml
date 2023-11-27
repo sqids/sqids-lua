@@ -25,6 +25,7 @@ jobs:
       - name: Setup dependencies
         run: |
           luarocks install --deps-only sqids-lua-0.1-0.rockspec
+          luarocks install busted
 
       - name: Build 'sqids'
         run: |
