@@ -11,8 +11,21 @@ DefaultOptions = {
 
 local minLengthLimit = 255
 
+local function get_script_path()
+    local str = debug.getinfo(2, "S").source:sub(2)
+    local parent_dir = str:match("(.*/)")
+    if parent_dir then
+        return parent_dir
+    end
+    return "./"
+end
+
+local current_directory = get_script_path()
+print("Current Directory:", current_directory)
+local blocklistFilePath = current_directory .. "blocklist.json"
+
 -- Load blocklist from blocklist.json file
-local blocklistFile = io.open("blocklist.json", "r")
+local blocklistFile = io.open(blocklistFilePath, "r")
 if not blocklistFile then
     error("Cannot open blocklist.json")
 end
