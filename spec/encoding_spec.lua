@@ -122,7 +122,7 @@ describe("Encoding tests", function()
         local success, _ = pcall(function() sqids:encode({ -1 }) end)
         assert.is_false(success)
 
-        local success2, _ = pcall(function() sqids:encode({ 2 ^ 53 - 1 }) end)
+        local success2, _ = pcall(function() sqids:encode({ 2 ^ 53 }) end)
         assert.is_false(success2)
     end)
     
