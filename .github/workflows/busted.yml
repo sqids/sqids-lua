@@ -24,7 +24,7 @@ jobs:
 
       - name: Setup dependencies
         run: |
-          luarocks install --deps-only sqids-lua-0.1-0.rockspec
+          luarocks install --deps-only sqids-lua-*.rockspec
           luarocks install busted
           luarocks install luacov
           luarocks install luacov-coveralls
