@@ -1,0 +1,7 @@
+
+Rocks installed for Lua 5.4
+---------------------------
+
+lua-cjson
+   2.1.0.10-1 (installed) - /Users/nascarsayan/Code/github.com/nascarsayan/sqids-lua/lua_modules/lib/luarocks/rocks-5.4
+
