@@ -1,5 +1,5 @@
 package = "sqids-lua"
-version = "0.1-0"
+version = "0.1-1"
 source = {
    url = "git://github.com/sqids/sqids-lua"
 }
