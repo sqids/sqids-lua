@@ -5,4 +5,4 @@ build:
 
 publish:
 	luarocks pack sqids-lua
-	luarocks upload --api-key=${LUAROCKS_API_KEY}
+	luarocks upload --api-key=${LUAROCKS_API_KEY} sqids-lua-*.rockspec
