@@ -1,7 +1,7 @@
 package = "sqids-lua"
 version = "0.1-1"
 source = {
-   url = "git://github.com/sqids/sqids-lua"
+   url = "file://."
 }
 description = {
    summary = "Sqids (pronounced \"squids\") is a small library that lets you generate YouTube-looking IDs from numbers.",
