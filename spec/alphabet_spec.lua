@@ -1,3 +1,4 @@
+require 'busted.runner' ()
 
 describe("Alphabet tests", function()
     local Sqids = require("sqids")
