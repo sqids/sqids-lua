@@ -255,12 +255,9 @@ function Sqids:encode(numbers)
         return ''
     end
 
-    -- don't allow out-of-range numbers [might be lang-specific]
-    local inRangeNumbers = {}
+    -- don't allow out-of-range numbers
     for _, n in ipairs(numbers) do
-        if n >= 0 and n <= maxValue() then
-            table.insert(inRangeNumbers, n)
-        else
+        if n < 0 or n > maxValue() then
             error("Encoding supports numbers between 0 and " .. maxValue())
         end
     end
