@@ -255,6 +255,13 @@ function Sqids:encode(numbers)
         return ''
     end
 
+    -- don't allow out-of-range numbers
+    for _, n in ipairs(numbers) do
+        if n < 0 or n > maxValue() then
+            error("Encoding supports numbers between 0 and " .. maxValue())
+        end
+    end
+
     return encodeNumbers(self, numbers)
 end
 
